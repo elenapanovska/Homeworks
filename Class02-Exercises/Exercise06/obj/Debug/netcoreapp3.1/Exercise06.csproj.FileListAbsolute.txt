@@ -1,0 +1,11 @@
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.exe
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.deps.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.runtimeconfig.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.runtimeconfig.dev.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\bin\Debug\netcoreapp3.1\Exercise06.pdb
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\obj\Debug\netcoreapp3.1\Exercise06.csprojAssemblyReference.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\obj\Debug\netcoreapp3.1\Exercise06.AssemblyInfoInputs.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\obj\Debug\netcoreapp3.1\Exercise06.AssemblyInfo.cs
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\obj\Debug\netcoreapp3.1\Exercise06.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class02-Exercises\Exercise06\obj\Debug\netcoreapp3.1\Exercise06.pdb
