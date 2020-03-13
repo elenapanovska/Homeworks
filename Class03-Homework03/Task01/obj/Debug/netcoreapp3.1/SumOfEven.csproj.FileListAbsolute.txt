@@ -1,0 +1,11 @@
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.exe
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.deps.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.runtimeconfig.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.runtimeconfig.dev.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\bin\Debug\netcoreapp3.1\SumOfEven.pdb
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\obj\Debug\netcoreapp3.1\SumOfEven.csprojAssemblyReference.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\obj\Debug\netcoreapp3.1\SumOfEven.AssemblyInfoInputs.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\obj\Debug\netcoreapp3.1\SumOfEven.AssemblyInfo.cs
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\obj\Debug\netcoreapp3.1\SumOfEven.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\Task01\obj\Debug\netcoreapp3.1\SumOfEven.pdb

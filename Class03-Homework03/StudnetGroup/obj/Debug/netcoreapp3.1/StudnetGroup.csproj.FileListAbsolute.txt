@@ -1,0 +1,11 @@
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.exe
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.deps.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.runtimeconfig.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.runtimeconfig.dev.json
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\bin\Debug\netcoreapp3.1\StudnetGroup.pdb
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\obj\Debug\netcoreapp3.1\StudnetGroup.csprojAssemblyReference.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\obj\Debug\netcoreapp3.1\StudnetGroup.AssemblyInfoInputs.cache
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\obj\Debug\netcoreapp3.1\StudnetGroup.AssemblyInfo.cs
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\obj\Debug\netcoreapp3.1\StudnetGroup.dll
+C:\Users\Elena\Desktop\C#-Basic\Homeworks\Class03-Homework03\StudnetGroup\obj\Debug\netcoreapp3.1\StudnetGroup.pdb
