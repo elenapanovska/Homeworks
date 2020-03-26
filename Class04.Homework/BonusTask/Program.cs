@@ -6,7 +6,7 @@ namespace BonusTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Enter your birth date ");
 
             DateTime birthDate = DateTime.Parse(Console.ReadLine());
             AgeCalculator(birthDate);
