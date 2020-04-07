@@ -24,6 +24,10 @@ namespace Class06.Exercise.HM.Business.Models
             DateOfBirth = dateOfBirth;
             CreatedOn = DateTime.Now;
         }
+        public User()
+        {
+
+        }
 
         public string GetInfo()
         {

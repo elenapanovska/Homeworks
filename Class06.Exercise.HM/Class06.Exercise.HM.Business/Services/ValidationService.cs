@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Class06.Exercise.HM.Business.Services
 {
-    class ValidationService
+    public class ValidationService
     {
         public bool ValidateEmail(string email)
         {
@@ -58,7 +58,6 @@ namespace Class06.Exercise.HM.Business.Services
                     countDigits++;
                 }
             }
-
             return countUpperLetters != 0 && countDigits != 0;
         }
     }
