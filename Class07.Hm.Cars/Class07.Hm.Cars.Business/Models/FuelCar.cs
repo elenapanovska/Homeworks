@@ -29,17 +29,16 @@ namespace Class07.Hm.Cars.Business.Models
 
         public int Refuel(int fuel)
         {
-            int refuel = 0;
             if (CurrentFuel + fuel > FuelCapasity)
             {
                 Console.WriteLine($"Can't refuel more than {FuelCapasity} litres");
             }
             else
             {
-                refuel = CurrentFuel + fuel;
-                Console.WriteLine($"Your tank now has {refuel} liters ");
+                CurrentFuel = CurrentFuel + fuel;
+                Console.WriteLine($"Your tank now has {CurrentFuel} liters ");
             }
-            return refuel;
+            return CurrentFuel;
         }
         
        
