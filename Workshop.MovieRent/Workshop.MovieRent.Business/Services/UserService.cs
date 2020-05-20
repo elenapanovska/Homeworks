@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using Workshop.MovieRent.Business.Helpers;
+using Workshop.MovieRent.Business.Loaders;
 using Workshop.MovieRent.Data.Database;
 using Workshop.MovieRent.Data.Models;
 
@@ -25,7 +26,7 @@ namespace Workshop.MovieRent.Business.Services
                 var idCard = InputParser.ToInteger(100, 999);
 
                 var user = _userRepository.GetUserByIdCard(idCard);
-                //LoadingHelpers.Spinner();
+                LoadingHelpers.Spinner();
 
                 if(user != null)
                 {
@@ -56,7 +57,7 @@ namespace Workshop.MovieRent.Business.Services
                 int cardNum = GenerateNewCardNumber();
 
                 Console.WriteLine("Creating user please wait");
-               //LoadingHelpers.ShowSimplePersentage();
+                LoadingHelpers.ShowSimplePercentage();
 
                 var user = new User
                 {

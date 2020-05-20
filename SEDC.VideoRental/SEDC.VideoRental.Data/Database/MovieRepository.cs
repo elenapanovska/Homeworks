@@ -13,9 +13,9 @@ namespace SEDC.VideoRental.Data.Database
             return Movies;
         }
 
-        public List<Movie> GetByGenre(string genre)
+        public List<Movie> GetByGenre(Genre genre)
         {
-            return Movies.Where(_movie => _movie.Genre.ToString().ToLower() == genre.ToLower()).ToList();
+            return Movies.Where(_movie => _movie.Genre == genre).ToList();
         }
 
         public List<Movie> OrderByGenre()
@@ -56,6 +56,11 @@ namespace SEDC.VideoRental.Data.Database
             return Movies.Where(_movie => _movie.Title.Contains(titlePart, StringComparison.InvariantCultureIgnoreCase)).ToList();
             // same as top but using StringComparison instead of ToLower();
             //return Movies.Where(_movie => _movie.Title.ToLower().Contains(titlePart.ToLower())).ToList();
+        }
+
+        public Movie GetMovieById(int id)
+        {
+            return Movies.FirstOrDefault(_movie => _movie.Id == id);
         }
     }
 }

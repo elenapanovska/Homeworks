@@ -56,5 +56,10 @@ namespace Workshop.MovieRent.Data.Database
         {
             return Movies.Where(_movie => _movie.Title.Contains(titlePart, StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
+
+        public Movie GetMovieById(int id)
+        {
+            return Movies.FirstOrDefault(_movie => _movie.Id == id);
+        }
     }
 }

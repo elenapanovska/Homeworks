@@ -1,15 +1,15 @@
-﻿using SEDC.VideoRental.Data.Database;
-using SEDC.VideoRental.Data.Models;
-using SEDC.VideoRental.Services.Helpers;
-using SEDC.VideoRental.Services.Loaders;
-using SEDC.VideoRental.Services.Menus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using Workshop.MovieRent.Business.Helpers;
+using Workshop.MovieRent.Business.Loaders;
+using Workshop.MovieRent.Business.Menus;
+using Workshop.MovieRent.Data.Database;
+using Workshop.MovieRent.Data.Models;
 
-namespace SEDC.VideoRental.Services.Services
+namespace Workshop.MovieRent.Business.Services
 {
     public class MovieService
     {
@@ -25,6 +25,7 @@ namespace SEDC.VideoRental.Services.Services
             string errorMessage = string.Empty;
             var movies = _movieRepository.GetAllMovies();
 
+
             bool isFinished = false;
             while (!isFinished)
             {
@@ -34,12 +35,9 @@ namespace SEDC.VideoRental.Services.Services
                 {
                     PrintMoviesInfo(movies);
                 }
-                else
-                {
-                    Console.WriteLine("No videos available with that filtering options");
-                }
                 Screen.OrderingMenu();
                 var selection = InputParser.ToInteger(0, 9);
+
                 switch (selection)
                 {
                     case 1:
@@ -50,13 +48,13 @@ namespace SEDC.VideoRental.Services.Services
                         break;
                     case 3:
                         var genre = InputParser.ToGenre();
-                        movies = _movieRepository.GetByGenre(genre);
+                        movies= _movieRepository.GetByGenre(genre);
                         break;
                     case 4:
-                        movies = _movieRepository.OrderByReleaseDate();
+                        movies = _movieRepository.OrderByRelaseDate();
                         break;
                     case 5:
-                        Console.Write("Enter year: ");
+                        Console.WriteLine("Enter year:");
                         var year = InputParser.ToInteger(
                             _movieRepository.GetAllMovies().Min(_movie => _movie.ReleaseDate.Year),
                             DateTime.Now.Year - 1
@@ -64,13 +62,13 @@ namespace SEDC.VideoRental.Services.Services
                         movies = _movieRepository.GetByYear(year);
                         break;
                     case 6:
-                        movies = _movieRepository.OrderByAvailability();
+                        movies= _movieRepository.OrederByAvaibility();
                         break;
                     case 7:
                         movies = _movieRepository.GetAvailableMovies();
                         break;
                     case 8:
-                        Console.Write("Enter search phrase: ");
+                        Console.WriteLine("Enter search phrase:");
                         string titlePart = Console.ReadLine();
                         movies = _movieRepository.SearchMoviesByTitle(titlePart);
                         break;
@@ -82,6 +80,7 @@ namespace SEDC.VideoRental.Services.Services
                         catch (Exception ex)
                         {
                             errorMessage = ex.Message;
+
                         }
                         break;
                     case 0:
@@ -93,18 +92,19 @@ namespace SEDC.VideoRental.Services.Services
 
         private void RentVideo(User user)
         {
-            Console.Write("Enter movie id: ");
-            var movieId = InputParser.ToInteger(
+            Console.Write("Enter movie id:");
+            var movieId = InputParser.ToInteger( 
                 _movieRepository.GetAllMovies().Min(_movie => _movie.Id),
-                _movieRepository.GetAllMovies().Max(_movie => _movie.Id)
-                );
+                _movieRepository.GetAllMovies().Max(_movie => _movie.Id));
 
             var movie = _movieRepository.GetMovieById(movieId);
+
             if (movie != null)
             {
                 if (!movie.IsAvailable)
                 {
-                    throw new Exception($"Movie {movie.Title} is not available at the moment");
+                    throw new Exception($"Movie {movie.Title} is not aviable at the moment!");
+                    
                 }
                 Console.WriteLine($"Are you sure you want to rent {movie.Title}? y/n");
                 bool confirm = InputParser.ToConfirm();
@@ -112,21 +112,20 @@ namespace SEDC.VideoRental.Services.Services
                 {
                     return;
                 }
-
                 Console.WriteLine("Renting movie please wait...");
-                LoadingHelpers.Spiner();
+                LoadingHelpers.Spinner();
                 movie.Quantity--;
                 if(movie.Quantity == 0)
                 {
                     movie.IsAvailable = !movie.IsAvailable;
                 }
                 user.RentedMovies.Add(movie);
-                Console.WriteLine("Successfuly rented movie");
+                Console.WriteLine("Succesfully rented movie");
                 Thread.Sleep(2000);
             }
             else
             {
-                throw new Exception($"No movie was found with {movieId} id");
+                throw new Exception($"No movie was found with {movieId} id!");
             }
         }
 
@@ -134,66 +133,12 @@ namespace SEDC.VideoRental.Services.Services
         {
             foreach (var movie in movies)
             {
-                string availablity = movie.IsAvailable ? "Yes" : "No";
+                string aviability = movie.IsAvailable ? "Yes" : "No";
                 Console.WriteLine(
-                    string.Format("Rent id: {0} Title: {1} Release Date: {2} Genre: {3} Available {4} Quatity: {5}",
-                    movie.Id, movie.Title, movie.ReleaseDate.ToString("MMMM dd yyyy"), 
-                    movie.Genre, availablity, movie.Quantity)
-                    );
+                    String.Format("Rent id: {0} Title: {1} Release date: {2} Genre: {3} Avaiable: {4} Quantity: {5}",
+                    movie.Id, movie.Title, movie.ReleaseDate.ToString("MMMM dd yyyy"),
+                    movie.Genre, aviability, movie.Quantity));
             }
-        }
-        
-
-        public void ReturnVideo(User user)
-        {
-            Console.Write("Enter the id of the movie you want to return:");
-            var id = InputParser.ToInteger(
-                _movieRepository.GetAllMovies().Min(_movie => _movie.Id),
-                _movieRepository.GetAllMovies().Max(_movie => _movie.Id));
-
-            var movie = _movieRepository.GetMovieById(id);
-
-            if(user.RentedMovies.Contains(movie))
-            {
-                Console.WriteLine($"Are you sure you want to return {movie.Title}? y/n");
-                bool confirm = InputParser.ToConfirm();
-                if (!confirm)
-                {
-                    return;
-                }
-                movie.Quantity++;
-                user.RentedMoviesHistory.Add(movie);
-                user.RentedMovies.Remove(movie);
-
-                Console.WriteLine("Returning video please wait..");
-                LoadingHelpers.Spiner();
-                Console.WriteLine("You succesfully retured the video");
-                Thread.Sleep(2000);
-            }
-            else
-            {
-                Console.WriteLine($"{movie.Title} is not in your rented videos!");
-                Thread.Sleep(2000);
-            }
-           
-        }
-
-        public void ViewRentedVideos(User user)
-        {
-            Console.WriteLine("Your curently rented videos are:");
-            var movies = user.RentedMovies;
-
-            PrintMoviesInfo(movies);
-            Thread.Sleep(10000);
-        }
-
-        public void ViewRentedHistory(User user)
-        {
-            Console.WriteLine("Rented history:");
-            var movies = user.RentedMoviesHistory;
-
-            PrintMoviesInfo(movies);
-            Thread.Sleep(5000);
         }
     }
 }

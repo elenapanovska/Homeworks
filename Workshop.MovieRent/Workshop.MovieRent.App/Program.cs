@@ -1,6 +1,6 @@
 ﻿using System;
-using Workshop.MovieRent.App.Menus;
 using Workshop.MovieRent.Business.Helpers;
+using Workshop.MovieRent.Business.Menus;
 using Workshop.MovieRent.Business.Services;
 using Workshop.MovieRent.Data.Models;
 
@@ -10,9 +10,13 @@ namespace Workshop.MovieRent.App
     {
         static void Main(string[] args)
         {
-            var _userService = new UserService();
-            User user;
+            Console.Title = "Video Rental";
 
+            var _userService = new UserService();
+            var _movieService = new MovieService();
+            User user = null;
+
+            #region LogIn
             Screen.HomeScreen();
 
             bool isLoggedIn = false;
@@ -42,7 +46,31 @@ namespace Workshop.MovieRent.App
                 }
             }
 
-            Console.ReadLine();
+            #endregion
+
+
+            while (true)
+            {
+                Screen.ClearScreen();
+                Screen.MainMenu(user.FullName);
+                var selection = InputParser.ToInteger(1, 4);
+                switch (selection)
+                {
+                    case 1:
+                        _movieService.ViewMovieList(user);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                   
+                }
+
+            };
+
+           
         }
     }
 }

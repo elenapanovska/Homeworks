@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Workshop.MovieRent.Data.Enums;
 
 namespace Workshop.MovieRent.Business.Helpers
 {
@@ -94,6 +95,27 @@ namespace Workshop.MovieRent.Business.Helpers
                 }
             }
            
+        }
+
+        public static Genre ToGenre()
+        {
+            while (true)
+            {
+                var counter = 1;
+                foreach (var item in Enum.GetNames(typeof(Genre)))
+                {
+                    Console.WriteLine("{0}. {1}", counter, item);
+                    counter++;
+                }
+                var genreSelection = ToInteger(1, Enum.GetNames(typeof(Genre)).Length);
+                var isValid = Enum.TryParse(typeof(Genre),(genreSelection - 1).ToString(), out var genre);
+
+                if (isValid)
+                {
+                    return (Genre)genre;
+                }
+                Console.WriteLine("Please enter valid input");
+            }
         }
     }
 }
